@@ -51,7 +51,7 @@ convertCifar10BinToTorchTensor({
 	'/root/datasets/cifar-10/v0/data_batch_3.bin',
 	'/root/datasets/cifar-10/v0/data_batch_4.bin',
 	'/root/datasets/cifar-10/v0/data_batch_5.bin'},
-					'cifar10-train.t7')
+		'/root/datasets/cifar-10/v0/cifar10-train.t7')
 
 convertCifar10BinToTorchTensor({'/root/datasets/cifar-10/v0/test_batch.bin'},
-   'cifar10-test.t7')
+   		'/root/datasets/cifar-10/v0/cifar10-test.t7')
