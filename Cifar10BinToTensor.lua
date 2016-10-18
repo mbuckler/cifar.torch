@@ -45,13 +45,32 @@ local function convertCifar10BinToTorchTensor(inputFnames, outputFname)
    torch.save(outputFname, out)
 end
 
-convertCifar10BinToTorchTensor({
-	'/root/datasets/cifar-10/v0/data_batch_1.bin',
-	'/root/datasets/cifar-10/v0/data_batch_2.bin',
-	'/root/datasets/cifar-10/v0/data_batch_3.bin',
-	'/root/datasets/cifar-10/v0/data_batch_4.bin',
-	'/root/datasets/cifar-10/v0/data_batch_5.bin'},
-		'/root/datasets/cifar-10/v0/cifar10-train.t7')
 
-convertCifar10BinToTorchTensor({'/root/datasets/cifar-10/v0/test_batch.bin'},
-   		'/root/datasets/cifar-10/v0/cifar10-test.t7')
+local cmd = torch.CmdLine()
+
+cmd:text()
+cmd:text()
+cmd:text('Options:')
+cmd:option('-path','/datasets/cifar-10/v0/','path to data to be converted')
+cmd:text()
+
+params = cmd:parse(arg)
+
+cifar_path = params.path
+
+print("Converting at path: ",cifar_path)
+print("Set path with -path argument if desired")
+
+convertCifar10BinToTorchTensor({
+        (cifar_path .. 'data_batch_1.bin'),
+        (cifar_path .. 'data_batch_2.bin'),
+        (cifar_path .. 'data_batch_3.bin'),
+        (cifar_path .. 'data_batch_4.bin'),
+        (cifar_path .. 'data_batch_5.bin')},
+                (cifar_path .. 'cifar10-train.t7'))
+
+convertCifar10BinToTorchTensor({(cifar_path .. 'test_batch.bin')},
+                (cifar_path .. 'cifar10-test.t7'))
+                                                                                    73,1          Bot
+
+
