@@ -71,6 +71,5 @@ convertCifar10BinToTorchTensor({
 
 convertCifar10BinToTorchTensor({(cifar_path .. 'test_batch.bin')},
                 (cifar_path .. 'cifar10-test.t7'))
-                                                                                    73,1          Bot
 
 
